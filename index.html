@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ICE in America: A Social Justice Lens</title>
+  <meta name="description" content="An online media piece contextualizing ICE in America through critical social justice concepts." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a2e;
+      --text:#e8eefc;
+      --muted:#b8c2dd;
+      --accent:#7aa7ff;
+      --accent2:#7dffcc;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(122,167,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(125,255,204,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.75);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(122,167,255,.18);
+    }
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+    nav a{
+      display:inline-block;
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+    nav a:hover{
+      border-color:var(--border);
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .wrap{max-width: var(--max); margin: 0 auto; padding: 28px 18px 60px;}
+    .hero{
+      margin-top: 8px;
+      padding: 26px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(16,26,46,.95), rgba(16,26,46,.78));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:-120px -80px auto auto;
+      width:280px; height:280px;
+      background: radial-gradient(circle at 30% 30%, rgba(122,167,255,.28), transparent 65%),
+                  radial-gradient(circle at 70% 70%, rgba(125,255,204,.20), transparent 62%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .kicker{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:12px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+    }
+    h1{
+      margin: 12px 0 10px;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height:1.1;
+      letter-spacing:-.4px;
+    }
+    .lede{
+      max-width: 72ch;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 18px;
+    }
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      margin-top: 8px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .btn:hover{background: rgba(255,255,255,.07)}
+    .btn.primary{
+      border-color: rgba(122,167,255,.35);
+      background: rgba(122,167,255,.12);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: rgba(16,26,46,.72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing:-.2px;
+    }
+    h3{
+      margin: 18px 0 8px;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing:-.1px;
+    }
+    p{margin: 0 0 12px; color: var(--muted)}
+    .note{
+      border-left: 4px solid rgba(125,255,204,.55);
+      padding: 10px 12px;
+      background: rgba(125,255,204,.06);
+      border-radius: 12px;
+      margin: 12px 0 16px;
+      color: var(--muted);
+    }
+    .bullets{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+    }
+    .bullets li{margin: 6px 0}
+    .quote{
+      margin: 14px 0 0;
+      padding: 14px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+      color: var(--muted);
+    }
+    .quote strong{color: var(--text)}
+    .toc{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .toc a{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-weight:700;
+      background: rgba(255,255,255,.03);
+    }
+    .toc a:hover{color: var(--text); background: rgba(255,255,255,.06); text-decoration:none}
+    .footer{
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top:1px solid var(--border);
+      color: rgba(232,238,252,.65);
+      font-size: 13px;
+    }
+    .works-cited{
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      color: var(--muted);
+    }
+    .works-cited p{
+      margin: 0 0 10px;
+      text-indent: -24px;
+      padding-left: 24px;
+      color: var(--muted);
+    }
+    .small{font-size: 13px; color: rgba(232,238,252,.65)}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight:700;
+      font-size: 12px;
+      color: rgba(232,238,252,.70);
+    }
+    .skip{
+      position:absolute; left:-9999px;
+    }
+    .skip:focus{
+      left:18px; top:18px; z-index:999;
+      padding:10px 12px;
+      background: rgba(16,26,46,.95);
+      border:1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> ICE in America • Social Justice Lens</div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#framework">Framework</a></li>
+          <li><a href="#media">Media Choice</a></li>
+          <li><a href="#patterns">Patterns</a></li>
+          <li><a href="#action">Action</a></li>
+          <li><a href="#works">Works Cited</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <span class="kicker">Online Media Piece + Class Context</span>
+      <h1 id="title">Watching the Border Move Inward</h1>
+      <p class="lede">
+        A digital companion to an academic essay on ICE in the United States—situated in critical social
+        justice concepts such as socialization, oppression, privilege, and structural power.
+      </p>
+
+      <div class="cta-row">
+        <button class="btn primary" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">
+          Read the Project Overview
+        </button>
+        <button class="btn" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})">
+          Jump to Works Cited
+        </button>
+      </div>
+
+      <div class="tagrow" aria-label="Key concepts">
+        <span class="tag">Structural inequality</span>
+        <span class="tag">Power & institutions</span>
+        <span class="tag">Socialization</span>
+        <span class="tag">Racialization</span>
+        <span class="tag">Citizenship & belonging</span>
+      </div>
+    </section>
+
+    <section class="grid" style="margin-top:18px">
+      <article class="card" id="overview">
+        <h2>Project Overview</h2>
+        <p>
+          This site is designed to accompany an essay analyzing what’s happening with ICE in America through a
+          social justice lens. The goal is to connect everyday news about immigration enforcement to bigger course
+          concepts: how power works, how “neutral” policies can create unequal outcomes, and why some kinds of
+          suffering become routine in public life.
+        </p>
+        <div class="note">
+          <strong>Big idea:</strong> when enforcement becomes “normal,” it gets harder to see the human cost—until a
+          story breaks through the noise.
+        </div>
+        <p class="small">
+          Tip: If you’re presenting this, use the sections below like “slides”—each one is short enough to talk through.
+        </p>
+      </article>
+
+      <aside class="card" aria-label="Table of contents">
+        <h2>Quick Navigation</h2>
+        <div class="toc">
+          <a href="#framework">1) Critical social justice framework</a>
+          <a href="#media">2) Why an online media format?</a>
+          <a href="#patterns">3) What patterns show up with ICE?</a>
+          <a href="#action">4) What can people do?</a>
+          <a href="#works">5) Works Cited (MLA)</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card" id="framework" style="margin-top:18px">
+      <h2>Critical Social Justice Framework</h2>
+      <p>
+        A critical social justice approach pushes us to look beyond individual intent and focus on systems—how
+        society is stratified, how groups are valued unequally, and how institutions can reproduce unequal outcomes.
+        In other words: the question isn’t just “Was someone being unfair?” but “What makes unfairness predictable?”
+      </p>
+      <h3>Key concepts used here</h3>
+      <ul class="bullets">
+        <li><strong>Structural power:</strong> unequal access to resources and safety can be produced by policy and practice, not only by attitudes.</li>
+        <li><strong>Socialization:</strong> people learn what to consider “normal” (and what to ignore).</li>
+        <li><strong>Oppression vs. prejudice:</strong> a system can harm groups even without overt hostility from every individual.</li>
+      </ul>
+
+      <div class="quote">
+        <strong>Mini-reflection:</strong> If an agency can reshape daily life through fear, paperwork, and detention—what does “freedom” mean in practice?
+      </div>
+    </section>
+
+    <section class="card" id="media" style="margin-top:18px">
+      <h2>Why a Digital / Online Media Format</h2>
+      <p>
+        Immigration enforcement is experienced through media: headlines, clips, viral posts, and comment wars.
+        A digital format lets the project match that reality. It also forces choices—what to highlight, what to simplify,
+        and how to present information without turning human lives into “content.”
+      </p>
+      <h3>What the format allowed</h3>
+      <ul class="bullets">
+        <li>Short sections that mirror how people read online (fast, fragmented, sometimes distracted).</li>
+        <li>Clear links between isolated incidents and repeating patterns.</li>
+        <li>Room for reflection: not just facts, but questions and ethical tension.</li>
+      </ul>
+      <p class="small">
+        Optional class-use idea: embed screenshots of your essay paragraphs or add a “story wall” with headlines and dates.
+      </p>
+    </section>
+
+    <section class="card" id="patterns" style="margin-top:18px">
+      <h2>Patterns to Notice When Talking About ICE</h2>
+      <p>
+        One reason ICE is hard to discuss is that the conversation often collapses into “legal vs. illegal” as if that
+        resolves everything. A social justice lens asks about outcomes, patterns, and power: who is affected, how,
+        and why those effects are tolerated.
+      </p>
+
+      <h3>Patterns this project tracks</h3>
+      <ul class="bullets">
+        <li><strong>Normalization:</strong> enforcement practices can feel routine—even when they carry serious human consequences.</li>
+        <li><strong>Unequal vulnerability:</strong> legal status shapes who can report abuse, access services, or participate in public life safely.</li>
+        <li><strong>Bureaucratic harm:</strong> forms, procedures, and “policy” language can hide the emotional reality of detention and separation.</li>
+      </ul>
+
+      <div class="note">
+        <strong>Plain-speak moment:</strong> When fear becomes a daily strategy, it doesn’t stay “at the border.” It spreads into schools, workplaces,
+        and neighborhoods.
+      </div>
+    </section>
+
+    <section class="card" id="action" style="margin-top:18px">
+      <h2>Action and Responsibility</h2>
+      <p>
+        This project doesn’t pretend there’s a quick fix. Still, critical social justice emphasizes that there is no
+        neutral ground: ignoring injustice usually helps it keep going. So what can people do—without pretending
+        they’re the hero of the story?
+      </p>
+      <h3>Reasonable actions (not performative)</h3>
+      <ul class="bullets">
+        <li>Learn local resources: legal aid organizations, community groups, and mutual aid networks.</li>
+        <li>Support policies that expand due process and limit harm (especially for families and vulnerable people).</li>
+        <li>Challenge dehumanizing narratives: in conversation, in classrooms, and online.</li>
+        <li>Practice self-reflection about positionality: who is safe, who isn’t, and how that shapes what feels “normal.”</li>
+      </ul>
+
+      <div class="quote">
+        <strong>Final question:</strong> If “justice” is supposed to mean fairness and dignity, what do we owe people who live under constant threat?
+      </div>
+    </section>
+
+    <section class="card" id="works" style="margin-top:18px">
+      <h2>Works Cited (MLA)</h2>
+
+      <div class="works-cited" aria-label="Works Cited list">
+        <p>Alexander, Michelle. <em>The New Jim Crow: Mass Incarceration in the Age of Colorblindness</em>. The New Press, 2012.</p>
+        <p>Crenshaw, Kimberlé. “Mapping the Margins: Intersectionality, Identity Politics, and Violence against Women of Color.” <em>Stanford Law Review</em>, vol. 43, no. 6, 1991, pp. 1241–1299.</p>
+        <p>Davis, Angela Y. <em>Freedom Is a Constant Struggle: Ferguson, Palestine, and the Foundations of a Movement</em>. Haymarket Books, 2016.</p>
+        <p>Sensoy, Özlem, and Robin DiAngelo. <em>Is Everyone Really Equal? An Introduction to Key Concepts in Social Justice Education</em>. 2nd ed., Teachers College Press, 2017.</p>
+        <p>“Social Injustice: What Is It, Examples, and Solutions.” <em>The Persecuted</em>, 13 July 2020, thepersecuted.org/social-injustice-what-is-it-examples-and-solutions/.</p>
+      </div>
+
+      <p class="footer">
+        Built as a simple, single-file website for class submission. You can add images, links to news stories,
+        or a “Media Gallery” section if your instructor expects more multimedia content.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
